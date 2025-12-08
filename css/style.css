@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "ArsenicaTrial-lightitalic";
+  src: url("css/fonts/ArsenicaTrial-LightItalic.ttf")
+    format("ArsenicaTrial-LightItalic");
+}
+
+@font-face {
+  font-family: "ArsenicaTrial-italic";
+  src: url("/Project-B/css/fonts/ArsenicaTrial-Italic.ttf")
+    format("ArsenicaTrial-Italic");
+}
+
+@font-face {
+  font-family: "Freesentation-3";
+  src: url("/Project-B/css/fonts/Freesentation-3Light.ttf")
+    format("Freesentation-3Light");
+}
+
+@font-face {
+  font-family: "Freesentation-4";
+  src: url("/Project-B/css/fonts/Freesentation-4Regular.ttf")
+    format("Freesentation-4Regular");
+}
+
+@font-face {
+  font-family: "Freesentation-7";
+  src: url("/Project-B/css/fonts/Freesentation-7Bold.ttf")
+    format("Freesentation-7Bold");
+}

@@ -18,7 +18,6 @@
     ></script>
 
     <style>
-      /* --- 폰트 및 기본 세팅 (기존 유지) --- */
       @font-face {
         font-family: "ArsenicaTrial-ThinItalic";
         src: url("css/fonts/ArsenicaTrial-ThinItalic.ttf") format("truetype");
@@ -51,7 +50,6 @@
         overflow-x: hidden;
       }
 
-      /* --- 1. 고정 레이어 --- */
       .fixed-layer {
         position: fixed;
         top: 0;
@@ -61,6 +59,7 @@
         z-index: 0;
         pointer-events: none;
       }
+
       .bg {
         width: 100%;
         height: 100%;
@@ -87,10 +86,10 @@
         will-change: transform, opacity;
       }
 
-      /* 텍스트 그룹 (고정) */
       .text-group {
         position: absolute;
       }
+
       .text-greek {
         font-family: "ArsenicaTrial-LightItalic";
         color: #be991f;
@@ -102,6 +101,7 @@
         font-weight: normal;
         -webkit-font-smoothing: antialiased;
       }
+
       .text-cosmetic {
         font-family: "ArsenicaTrial-Italic";
         color: #be991f;
@@ -113,6 +113,7 @@
         font-weight: normal;
         -webkit-font-smoothing: antialiased;
       }
+
       .text-sub {
         font-family: "Freesentation-3";
         color: #333333;
@@ -122,7 +123,6 @@
         z-index: 2;
       }
 
-      /* 벡터 및 로고 (고정) */
       .vector-1 {
         position: absolute;
         width: 22vw;
@@ -137,6 +137,7 @@
         left: 80%;
         z-index: 3;
       }
+
       .vector-3 {
         position: absolute;
         width: 10vw;
@@ -144,6 +145,7 @@
         left: 91%;
         z-index: 3;
       }
+
       .vector-4 {
         position: absolute;
         width: 25vw;
@@ -151,6 +153,7 @@
         left: -4%;
         z-index: 3;
       }
+
       .vector-5 {
         position: absolute;
         width: 20vw;
@@ -158,6 +161,7 @@
         left: 82%;
         z-index: 3;
       }
+
       .logo {
         position: absolute;
         width: 7vw;
@@ -165,6 +169,7 @@
         left: 4%;
         z-index: 10;
       }
+
       .logo_typo {
         position: absolute;
         width: 14vw;
@@ -173,7 +178,6 @@
         z-index: 10;
       }
 
-      /* --- 2. 흩뿌리기 레이어 (이미지들) --- */
       .scatter-layer {
         position: relative;
         width: 100%;
@@ -183,41 +187,46 @@
         justify-content: center;
         align-items: center;
       }
+
       .scatter-layer img,
       .god-wrapper {
         position: absolute;
         will-change: transform;
       }
 
-      /* 이미지 위치 */
       .package_1 {
         width: 38vw;
         top: 24%;
         left: 14%;
         z-index: 1;
       }
+
       .perfume_1 {
         width: 19vw;
         top: 38%;
         left: 61%;
         z-index: 2;
       }
+
       .mirror {
         width: 35vw;
         top: 40%;
         z-index: 3;
       }
+
       .frame_head {
         width: 20vw;
         top: 42%;
         z-index: 4;
       }
+
       .god {
         width: 24vw;
         top: 46%;
         left: 38%;
         z-index: 6;
       }
+
       .angel {
         width: 26vw;
         z-index: 7;
@@ -225,7 +234,6 @@
         left: 50%;
       }
 
-      /* --- 3. 콘텐츠 레이어 (스크롤 내용) --- */
       .content-section {
         position: relative;
         z-index: 20;
@@ -244,11 +252,10 @@
         padding-bottom: 10vh;
       }
 
-      /* 기본 정보 블록 스타일 */
       .info-block {
         max-width: 60vw;
         text-align: center;
-        margin-bottom: 20vh; /* 블록 간 간격 */
+        margin-bottom: 20vh;
         opacity: 0;
         transform: translateY(50px);
       }
@@ -267,10 +274,8 @@
         color: #ccc;
       }
 
-      /* ★ [수정됨] 패키지 2 이미지 스타일 ★ */
-      /* 크기 자유 조절 가능 (현재 25vw), 가운데 정렬 */
       .package_2 {
-        width: 60vw; /* 현준님! 여기서 크기를 자유롭게 조절하세요 */
+        width: 60vw;
         height: auto;
         display: block;
         margin: 5vh auto 0;
@@ -279,9 +284,8 @@
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
       }
 
-      /* ★ [추가됨] 마지막 블록 (텍스트+로고) 중앙 정렬용 스타일 ★ */
       .last-block {
-        height: 8vh; /* 화면 높이의 60% 정도를 차지하게 해서 */
+        height: 8vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -289,7 +293,6 @@
         margin-bottom: 0;
       }
 
-      /* 로고 화이트 */
       .logo_white {
         position: absolute;
         left: 50%;
@@ -454,19 +457,15 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        // GSAP 플러그인 등록
         gsap.registerPlugin(ScrollTrigger);
 
-        // -------------------------------------------------------------
-        // [1] 은은한 빛 효과 (Breathing Glow)
-        // -------------------------------------------------------------
-        // ★ xPercent, yPercent로 중앙 정렬 (-50% 역할)
         gsap.set(".glow-effect", {
           xPercent: -50,
           yPercent: -50,
           scale: 0.8,
           opacity: 0.4,
         });
+
         gsap.to(".glow-effect", {
           scale: 1.5,
           opacity: 1,
@@ -476,9 +475,6 @@
           ease: "sine.inOut",
         });
 
-        // -------------------------------------------------------------
-        // [2] 스크롤 시 흩뿌리기 (Scattering)
-        // -------------------------------------------------------------
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: ".scatter-layer",
@@ -489,7 +485,6 @@
           },
         });
 
-        // (A) SVG(로고, 종이 등)와 텍스트, 배경은 제외하고, ★오직 이미지 파일들만★ 흩뿌림
         const allImages = gsap.utils.toArray(".scatter-layer img");
 
         allImages.forEach((img) => {
@@ -512,12 +507,8 @@
           );
         });
 
-        // ★ 빛 효과도 함께 사라지게 설정 (선택 사항)
         tl.to(".glow-effect", { opacity: 0, duration: 1 }, 0);
 
-        // -------------------------------------------------------------
-        // [3] 콘텐츠 등장 효과 (ScrollTrigger)
-        // -------------------------------------------------------------
         gsap.utils.toArray(".info-block").forEach((block) => {
           gsap.to(block, {
             opacity: 1,
@@ -532,10 +523,6 @@
           });
         });
 
-        // -------------------------------------------------------------
-        // [4] 둥실둥실 부유하는 모션 (Floating)
-        // -------------------------------------------------------------
-        // ★ 수정됨: 신(God)을 포함한 모든 이미지가 함께 둥실거림
         gsap.to(".scatter-layer img", {
           y: -15,
           duration: 2,
